@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://omsi-g.pm/XSD"
+           xmlns:omsi="https://omsi-g.pm/XSD">
+
+    <xs:element name="model">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="scriptTexture" type="omsi:scriptTexture" minOccurs="0"/>
+                <xs:element name="textTexture" type="omsi:textTexture" minOccurs="0"/>
+                <xs:element name="mesh" type="omsi:mesh"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="mesh">
+        <xs:sequence>
+            <xs:element name="material" type="omsi:material"/>
+            <xs:any minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="src"/>
+        <xs:attribute type="xs:string" name="id"/>
+        <xs:attribute type="xs:string" name="animation-parent"/>
+        <xs:attribute type="xs:string" name="onclick"/>
+    </xs:complexType>
+    <xs:complexType name="material">
+        <xs:attribute type="xs:string" name="src"/>
+        <xs:attribute type="xs:int" name="alpha-mode"/>
+    </xs:complexType>
+    <xs:complexType name="scriptTexture">
+        <xs:attribute type="xs:int" name="width"/>
+        <xs:attribute type="xs:int" name="height"/>
+        <xs:attribute type="xs:string" name="id"/>
+    </xs:complexType>
+    <xs:complexType name="textTexture">
+        <xs:attribute type="xs:int" name="width"/>
+        <xs:attribute type="xs:int" name="height"/>
+        <xs:attribute type="xs:string" name="id"/>
+        <xs:attribute type="xs:string" name="string-variable"/>
+        <xs:attribute type="xs:string" name="font"/>
+        <xs:attribute type="xs:boolean" name="color-font"/>
+        <xs:attribute type="xs:string" name="color"/>
+        <xs:attribute type="xs:int" name="alignment"/>
+        <xs:attribute type="xs:boolean" name="snap-to-pixels"/>
+    </xs:complexType>
+</xs:schema>
